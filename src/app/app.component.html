@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-primary form-control" (click)="loadCars()">Load to Cars</button>
+            <input type="text" class="form-control"
+            placeholder="Car Filter" [ngStyle]="{'margin-top': '10px'}"
+            [(ngModel)]="searchCar">
+
+            <hr>
+            
+            <div class="list-group">
+                <p class="list-group-item d-flex justify-content-between"
+                *ngFor="let car of cars | filter: searchCar">
+                    <span>
+                        {{car.name}} 
+                    </span> 
+                    <button class="btn btn-danger btn-xs font-weight" (click)="deleteCar(car)">&times;</button>
+                </p>
+            </div>
+
+            <hr>
+
+            <input 
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="carName"
+                placeholder="Car Name...">
+
+            <br>
+            
+            <button class="btn btn-success form-control"
+            (click)="addCar()">Car Add</button>
+        </div>
+    </div>
+</div>
